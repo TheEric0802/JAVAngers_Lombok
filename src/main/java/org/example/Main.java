@@ -37,5 +37,44 @@ public class Main {
         mathCourse.getStudents().forEach(student -> 
             System.out.println(" - " + student.getName())
         );
+
+        // Create Students with builder
+        Student student4 = Student.builder()
+                .id("S4")
+                .name("Anna Schmidt")
+                .address("Parkallee 4")
+                .build();
+
+        Student student5 = Student.builder()
+                .id("S5")
+                .name("Lara Musterfrau")
+                .address("Hauptstraße 5")
+                .build();
+
+        // Create Teacher with builder
+        Teacher chemistryTeacher = Teacher.builder()
+                .id("T3")
+                .name("Dr. Weber")
+                .subject("Chemistry")
+                .build();
+
+        // Create Course with builder
+        Course chemistryCourse = Course.builder()
+                .id("C301")
+                .name("Organic Chemistry")
+                .teacher(chemistryTeacher)
+                .students(List.of(student2, student4))
+                .build();
+
+        // Print some information
+        System.out.println("\nNew Chemistry Course: " + chemistryCourse);
+
+        // Update teacher with @with
+        chemistryTeacher = chemistryTeacher.withSubject("Organic Chemistry");
+
+        chemistryCourse.setTeacher(chemistryTeacher);
+
+        // Print some information
+        System.out.println("\nUpdated Chemistry Course: " + chemistryCourse);
     }
 }
