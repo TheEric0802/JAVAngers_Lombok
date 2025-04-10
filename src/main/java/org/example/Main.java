@@ -88,5 +88,27 @@ public class Main {
             .build();
 
         System.out.println("\nUniversity: " + university);
+
+        // Create university and add courses
+        University university2 = new University("U2", "Example University", List.of(mathCourse, physicsCourse));
+        
+        // Example calls for UniversityService methods
+        System.out.println("\nAverage grades:");
+        
+        // Calculate average grade for math course
+        UniversityService.calculateAverageGradeForCourse(mathCourse)
+            .ifPresentOrElse(
+                avg -> System.out.println("Math course average grade: " + avg),
+                () -> System.out.println("Math course has no students")
+            );
+            
+        // Calculate university-wide average grade
+        UniversityService.calculateUniversityAverageGrade(university2)
+            .ifPresentOrElse(
+                avg -> System.out.println("University-wide average grade: " + avg),
+                () -> System.out.println("University has no students")
+            );
+
+        System.out.println(UniversityService.getStudentsBetterThan2(university2));
     }
 }
