@@ -1,16 +1,16 @@
 package org.example;
 
-import lombok.Data;
-import lombok.AllArgsConstructor;
+import lombok.Value;
 import lombok.Builder;
+import lombok.With;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
+@Value
 @Builder
+@With
 public class Course {
-    private String id;
-    private String name;
-    private Teacher teacher;
-    private List<Student> students;
+    String id;
+    String name;
+    Teacher teacher;
+    List<Student> students;
 }

@@ -43,12 +43,14 @@ public class Main {
                 .id("S4")
                 .name("Anna Schmidt")
                 .address("Parkallee 4")
+                .grade(2)
                 .build();
 
         Student student5 = Student.builder()
                 .id("S5")
                 .name("Lara Musterfrau")
                 .address("Hauptstraße 5")
+                .grade(1)
                 .build();
 
         // Create Teacher with builder
@@ -72,7 +74,8 @@ public class Main {
         // Update teacher with @with
         chemistryTeacher = chemistryTeacher.withSubject("Organic Chemistry");
 
-        chemistryCourse.setTeacher(chemistryTeacher);
+        // Update course with @with
+        chemistryCourse = chemistryCourse.withTeacher(chemistryTeacher);
 
         // Print some information
         System.out.println("\nUpdated Chemistry Course: " + chemistryCourse);
