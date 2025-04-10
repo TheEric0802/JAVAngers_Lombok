@@ -79,5 +79,14 @@ public class Main {
 
         // Print some information
         System.out.println("\nUpdated Chemistry Course: " + chemistryCourse);
+
+        // University examples
+        University university = University.builder()
+            .id("U1")
+            .name("Technical University")
+            .courses(List.of(mathCourse, physicsCourse, chemistryCourse))
+            .build();
+
+        System.out.println("\nUniversity: " + university);
     }
 }
